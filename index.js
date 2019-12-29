@@ -15,6 +15,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
+
+
 // API KEY pk_2c23c234921c49a5af033a17906cc16a
 function call_api(readAPI, ticker){
     request('https://cloud.iexapis.com/stable/stock/'+ ticker + '/quote?token=pk_2c23c234921c49a5af033a17906cc16a', { json: true }, (err, res, body) => {
@@ -22,7 +24,7 @@ function call_api(readAPI, ticker){
             return console.log(err)
         };
         if (res.statusCode === 200){
-            // console.log(body);
+            //console.log(body);
             readAPI(body)
         };
     });
